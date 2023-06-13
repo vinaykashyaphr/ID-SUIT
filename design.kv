@@ -1,0 +1,610 @@
+#:import rgba kivy.utils.get_color_from_hex
+
+<InputWizard>
+    radius: 20
+    orientation: 'vertical'
+    md_bg_color: 0.15, 0.15, 0.15, 1
+    style: 'outlined'
+    line_color: rgba('#199AE5')
+    line_width: 1.2
+    size_hint: 1, 0.2
+    MDLabel:
+        id: input_textbox
+        text: 'Please drop your folder here'
+        font_size: 18
+        halign: "center"
+        bold: True
+        color: 0.6, 0.6, 0.6, 1
+
+
+<RootLayout>
+    size_hint: None, None
+    size: dp(730), dp(550)
+    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+    orientation: 'vertical'
+    spacing: dp(10)
+    InputWizard:
+        id: inputwizard
+
+    MDBottomNavigation:
+        panel_color: 50/255, 150/255, 180/255, 0.2 # 0.07, 0.07, 0.07, 1
+        radius: 20
+
+        MDBottomNavigationItem:
+            name: 'screen 1'
+            text: 'FORMAT'
+            icon: 'file'
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(20)
+                padding: (20, 0, 20, 20)
+
+                BoxLayout:
+                    spacing: dp(30)
+                    MDCard:
+                        radius: 20
+                        padding: (38, 10, 10, 10)
+                        orientation: 'horizontal'
+                        style: 'outlined'
+                        line_color: rgba('#199AE5')
+                        line_width: 1.2
+                        size_hint: 0.35, 0.6
+                        spacing: dp(20)
+                        MDCheckbox:
+                            size_hint: 0.1, 1
+                            id: global_checkbox
+                            on_release:
+                                root.all_references()
+                        MDLabel:
+                            size_hint: 0.9, 1
+                            text: 'FORMAT'
+                            bold: True
+                            halign: 'left'
+
+                    MDLabel:
+                        id: instruction
+                        text: '[ Select below the type of ident to be modified ]'
+                        font_size: 18
+                        color: 50/255, 180/255, 150/255, 1
+                        size_hint: 0.5, 0.3
+                        pos_hint: {'center_y': 0.25}
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: dp(20)
+                    size_hint: 1, 0.5
+                    MDCard:
+                        radius: 20
+                        padding: (10, 10, 10, 10)
+                        orientation: 'horizontal'
+                        line_color: rgba('#199AE5')
+                        line_width: 1.2
+                        MDCheckbox:
+                            size_hint: 0.4, 1
+                            id: checkbox_figure
+                            name: 'fig'
+                            on_release:
+                                root.figure_reference()
+                        MDLabel:
+                            size_hint: 0.6, 1
+                            text: 'Figures'
+
+                    MDCard:
+                        radius: 20
+                        padding: (10, 10, 10, 10)
+                        orientation: 'horizontal'
+                        line_color: rgba('#199AE5')
+                        line_width: 1.2
+                        MDCheckbox:
+                            size_hint: 0.4, 1
+                            id: checkbox_graphic
+                            name: 'gra'
+                            on_release:
+                                root.graphic_reference()
+                        MDLabel:
+                            size_hint: 0.6, 1
+                            text: 'Graphics'
+
+                    MDCard:
+                        radius: 20
+                        padding: (10, 10, 10, 10)
+                        orientation: 'horizontal'
+                        line_color: rgba('#199AE5')
+                        line_width: 1.2
+                        MDCheckbox:
+                            size_hint: 0.4, 1
+                            id: checkbox_hotspot
+                            name: 'hsp'
+                            on_release:
+                                root.hotspot_reference()
+                        MDLabel:
+                            size_hint: 0.6, 1
+                            text: 'Hotspots'
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: dp(20)
+                    size_hint: 1, 0.5
+                    MDCard:
+                        radius: 20
+                        padding: (10, 10, 10, 10)
+                        orientation: 'horizontal'
+                        line_color: rgba('#199AE5')
+                        line_width: 1.2
+                        MDCheckbox:
+                            size_hint: 0.4, 1
+                            id: checkbox_rfu
+                            name: 'rfu'
+                        MDLabel:
+                            size_hint: 0.6, 1
+                            text: 'RFU'
+
+                    MDCard:
+                        radius: 20
+                        padding: (10, 10, 10, 10)
+                        orientation: 'horizontal'
+                        line_color: rgba('#199AE5')
+                        line_width: 1.2
+                        MDCheckbox:
+                            size_hint: 0.4, 1
+                            id: checkbox_table
+                            name: 'tab'
+                        MDLabel:
+                            size_hint: 0.6, 1
+                            text: 'Table'
+
+                    MDCard:
+                        radius: 20
+                        padding: (10, 10, 10, 10)
+                        orientation: 'horizontal'
+
+                        line_color: rgba('#199AE5')
+                        line_width: 1.2
+                        MDCheckbox:
+                            size_hint: 0.4, 1
+                            id: checkbox_mmo
+                            name: 'mmo'
+                        MDLabel:
+                            size_hint: 0.6, 1
+                            text: 'Multimedia'
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    spacing: dp(20)
+                    size_hint: 1, 0.5
+                    MDCard:
+                        padding: (10, 10, 10, 10)
+                        orientation: 'horizontal'
+                        radius: 20
+                        line_color: rgba('#199AE5')
+                        line_width: 1.2
+                        MDCheckbox:
+                            size_hint: 0.4, 1
+                            id: checkbox_lvlp
+                            name: 'lvlp'
+                        MDLabel:
+                            size_hint: 0.6, 1
+                            text: 'Levelled Para'
+
+                    MDCard:
+                        padding: (10, 10, 10, 10)
+                        orientation: 'horizontal'
+                        radius: 20
+                        line_color: rgba('#199AE5')
+                        line_width: 1.2
+                        MDCheckbox:
+                            size_hint: 0.4, 1
+                            id: checkbox_para
+                            name: 'par'
+                        MDLabel:
+                            size_hint: 0.6, 1
+                            text: 'Para'
+
+                    MDCard:
+                        padding: (10, 10, 10, 10)
+                        orientation: 'horizontal'
+                        radius: 20
+                        line_color: rgba('#199AE5')
+                        line_width: 1.2
+                        MDCheckbox:
+                            size_hint: 0.4, 1
+                            id: checkbox_pstp
+                            name: 'pstp'
+                        MDLabel:
+                            size_hint: 0.6, 1
+                            text: 'Procedural Step'
+                BoxLayout:
+                    size_hint: 1, 0.5
+                    orientation: 'horizontal'
+                    spacing: dp(320)
+                    MDCard:
+                        padding: (10, 10, 10, 10)
+                        orientation: 'horizontal'
+                        md_bg_color: rgba('#199AE5')
+                        size_hint: 0.6, 1
+                        MDCheckbox:
+                            size_hint: 0.4, 1
+                            id: ietm_checkbox
+                            name: 'ietm'
+                        MDLabel:
+                            size_hint: 0.6, 1
+                            text: 'IETM'
+                            bold: True
+                            color: 0, 0, 0, 1
+                    BoxLayout:
+                        spacing: dp(10)
+                        HoverCard:
+                            text: 'Quit'
+                            reference: instruction
+                            on_release:
+                                app.action_quit('create_idents.exe')
+
+                        HoverCard:
+                            text: 'Clear'
+                            reference: instruction
+                            on_release:
+                                app.clear_input()
+
+                        HoverCard:
+                            text: 'Continue'
+                            reference: instruction
+                            on_release:
+                                root.proceed_further()
+
+        MDBottomNavigationItem:
+            name: 'screen 2'
+            text: 'REPLACE'
+            icon: 'file-replace'
+            IdReplacement:
+
+        MDBottomNavigationItem:
+            name: 'screen 3'
+            text: 'COMPUTE'
+            icon: 'vector-combine'
+            IdCompile:
+
+
+<IdReplacement>
+    orientation: 'vertical'
+    spacing: dp(20)
+    padding: (20, 0, 20, 20)
+
+    BoxLayout:
+        spacing: dp(30)
+        MDCard:
+            radius: 20
+            padding: (38, 10, 10, 10)
+            orientation: 'horizontal'
+            style: 'outlined'
+            line_color: rgba('#199AE5')
+            line_width: 1.2
+            size_hint: 0.35, 0.5
+            spacing: dp(20)
+            MDCheckbox:
+                size_hint: 0.1, 1
+                id: global_replacement
+                on_release:
+                    root.global_check()
+            MDLabel:
+                size_hint: 0.9, 1
+                text: 'REPLACE'
+                bold: True
+                halign: 'left'
+
+        MDLabel:
+            id: instruction2
+            text: '[ Select below the type of ident to be replaced ]'
+            font_size: 18
+            color: 50/255, 180/255, 150/255, 1
+            size_hint: 0.5, 0.3
+            pos_hint: {'center_y': 0.25}
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: dp(20)
+        padding: (50, 0, 50, 0)
+        size_hint: 1, 0.4
+        MDCard:
+            radius: 20
+            padding: (10, 10, 10, 10)
+            orientation: 'horizontal'
+            line_color: rgba('#199AE5')
+            line_width: 1.2
+            MDCheckbox:
+                size_hint: 0.4, 1
+                id: checkbox_warn
+                name: 'warn'
+
+            MDLabel:
+                size_hint: 0.6, 1
+                text: 'Warnings'
+
+        MDCard:
+            radius: 20
+            padding: (10, 10, 10, 10)
+            orientation: 'horizontal'
+            line_color: rgba('#199AE5')
+            line_width: 1.2
+            MDCheckbox:
+                size_hint: 0.4, 1
+                id: checkbox_caut
+                name: 'caut'
+
+            MDLabel:
+                size_hint: 0.6, 1
+                text: 'Cautions'
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: dp(20)
+        padding: (50, 0, 50, 0)
+        size_hint: 1, 0.4
+        MDCard:
+            radius: 20
+            padding: (10, 10, 10, 10)
+            orientation: 'horizontal'
+            line_color: rgba('#199AE5')
+            line_width: 1.2
+            MDCheckbox:
+                size_hint: 0.4, 1
+                id: checkbox_sup
+                name: 'sup'
+
+            MDLabel:
+                size_hint: 0.6, 1
+                text: 'Consumables'
+
+        MDCard:
+            radius: 20
+            padding: (10, 10, 10, 10)
+            orientation: 'horizontal'
+            line_color: rgba('#199AE5')
+            line_width: 1.2
+            MDCheckbox:
+                size_hint: 0.4, 1
+                id: checkbox_seq
+                name: 'seq'
+
+            MDLabel:
+                size_hint: 0.6, 1
+                text: 'Tools'
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: 0.7, 0.6
+        MDCard:
+            radius: 20
+            padding: (10, 10, 40, 10)
+            orientation: 'horizontal'
+            line_color: rgba('#199AE5')
+            line_width: 1.2
+            MDCheckbox:
+                size_hint: 0.2, 1
+                id: other_item
+                name: 'othr'
+                on_active:
+                    root.other_check()
+            MDLabel:
+                size_hint: 0.4, 1
+                text: 'Other'
+
+            MDTextField:
+                id: attr_input
+                hint_text: 'Enter Element and Attribute Name'
+                disabled: True
+                pos_hint: {'y': -0.3}
+
+
+    BoxLayout:
+        size_hint: 1, 0.5
+        orientation: 'horizontal'
+        padding: (20, 0, 0, 0)
+        spacing: dp(350)
+        HoverFloat:
+            icon: 'download'
+            text: 'id_replace'
+            size_hint: 0.35, 0.75
+            reference: instruction2
+            pos_hint: {'y': 0}
+            on_release:
+                root.template_download('id_replacement_template.xlsx')
+        BoxLayout:
+            spacing: dp(10)
+            HoverCard:
+                text: 'Quit'
+                reference: instruction2
+                on_release:
+                    app.action_quit('replid.exe')
+            HoverCard:
+                text: 'Clear'
+                reference: instruction2
+                on_release:
+                    app.clear_input()
+            HoverCard:
+                text: 'OK'
+                reference: instruction2
+                on_release:
+                    root.proceed_further()
+
+
+<IdCompile>
+    orientation: 'vertical'
+    spacing: dp(20)
+    padding: (20, 0, 20, 20)
+
+    BoxLayout:
+        spacing: dp(30)
+        MDCard:
+            radius: 20
+            padding: (38, 10, 10, 10)
+            orientation: 'horizontal'
+            style: 'outlined'
+            line_color: rgba('#199AE5')
+            line_width: 1.2
+            size_hint: 0.35, 0.5
+            spacing: dp(20)
+            MDCheckbox:
+                size_hint: 0.1, 1
+                id: global_compile
+                on_release:
+                    root.global_check()
+            MDLabel:
+                size_hint: 0.9, 1
+                text: 'COMPILE'
+                bold: True
+                halign: 'left'
+
+        MDLabel:
+            id: instruction3
+            text: '[ Select below the type of ident to be added or removed ]'
+            font_size: 18
+            color: 50/255, 180/255, 150/255, 1
+            size_hint: 0.5, 0.3
+            pos_hint: {'center_y': 0.25}
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: dp(20)
+        padding: (50, 0, 50, 0)
+        size_hint: 1, 0.4
+        MDCard:
+            radius: 20
+            padding: (10, 10, 10, 10)
+            orientation: 'horizontal'
+            line_color: rgba('#199AE5')
+            line_width: 1.2
+            MDCheckbox:
+                size_hint: 0.4, 1
+                id: checkbox_warn
+                name: 'warn'
+
+            MDLabel:
+                size_hint: 0.6, 1
+                text: 'Warnings'
+
+        MDCard:
+            radius: 20
+            padding: (10, 10, 10, 10)
+            orientation: 'horizontal'
+            line_color: rgba('#199AE5')
+            line_width: 1.2
+            MDCheckbox:
+                size_hint: 0.4, 1
+                id: checkbox_caut
+                name: 'caut'
+
+            MDLabel:
+                size_hint: 0.6, 1
+                text: 'Cautions'
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: dp(20)
+        padding: (50, 0, 50, 0)
+        size_hint: 1, 0.4
+        MDCard:
+            radius: 20
+            padding: (10, 10, 10, 10)
+            orientation: 'horizontal'
+            line_color: rgba('#199AE5')
+            line_width: 1.2
+            MDCheckbox:
+                size_hint: 0.4, 1
+                id: checkbox_sup
+                name: 'sup'
+
+            MDLabel:
+                size_hint: 0.6, 1
+                text: 'Consumables'
+
+        MDCard:
+            radius: 20
+            padding: (10, 10, 10, 10)
+            orientation: 'horizontal'
+            line_color: rgba('#199AE5')
+            line_width: 1.2
+            MDCheckbox:
+                size_hint: 0.4, 1
+                id: checkbox_seq
+                name: 'seq'
+
+            MDLabel:
+                size_hint: 0.6, 1
+                text: 'Tools'
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: dp(20)
+        padding: (50, 0, 50, 0)
+        size_hint: 0.55, 0.4
+        MDCard:
+            radius: 20
+            padding: (10, 10, 10, 10)
+            orientation: 'horizontal'
+            line_color: rgba('#199AE5')
+            line_width: 1.2
+            MDCheckbox:
+                size_hint: 0.4, 1
+                id: checkbox_ent
+                name: 'ent'
+
+            MDLabel:
+                size_hint: 0.6, 1
+                text: 'Enterprises'
+
+    BoxLayout:
+        size_hint: 1, 0.5
+        orientation: 'horizontal'
+        padding: (20, 0, 0, 0)
+        spacing: dp(180)
+        HoverFloat:
+            icon: 'download'
+            text: 'id_replace'
+            size_hint: 0.2, 0.7
+            reference: instruction3
+            pos_hint: {'y': 0}
+            on_release:
+                root.template_download('id_compilation_template.xlsx')
+        BoxLayout:
+            spacing: dp(10)
+            HoverCard:
+                text: 'Quit'
+                reference: instruction3
+                on_release:
+                    app.action_quit('compileid.exe')
+            HoverCard:
+                text: 'Clear'
+                reference: instruction3
+                on_release:
+                    app.clear_input()
+            HoverCard:
+                text: 'Remove Idents'
+                reference: instruction3
+                on_release:
+                    root.proceed_further(False)
+            HoverCard:
+                text: 'Add Idents'
+                reference: instruction3
+                on_release:
+                    root.proceed_further(True)
+
+<Tooltip>:
+    size_hint: None, None
+    size: self.texture_size[0]+15, self.texture_size[1]+15
+    canvas.before:
+        Color:
+            rgb: 0.2, 0.2, 0.2
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+<Matter>
+    orientation: "horizontal"
+    spacing: dp(20)
+    size_hint: 0.4, 1
+    MDTextButton:
+        text: "Processing ... "
+        bold: True
+        font_size: 18
+        pos_hint: {'center_x': 0.7}
+        valign: "middle"
